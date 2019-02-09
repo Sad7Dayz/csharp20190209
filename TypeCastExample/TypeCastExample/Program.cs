@@ -4,7 +4,8 @@ class TypeCastExample1
 {
     public static void Main()
     {
-        short a = 10;
+        var a = 10;
+        //short a = 10;
         int b = a;          //short형은 int형에 묵시적으로 변환되어 대입
         int c = 50000;      //이진수"0000 0000 0000 0000 1100 0011 0101 0000" 표현
                             //short형으로 변환하면 부호비트가 0에서 1로, 음수가 된다.
