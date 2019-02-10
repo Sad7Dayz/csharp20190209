@@ -4,21 +4,24 @@ namespace ConsoleApp9
 {
     class Program
     {
-        static void Swap(ref int a, ref int b)
+        static void Swap(out int a, out int b)
         //static void Swap(int a, int b)
         {
-            int tmp = a;
-            a = b;
-            b = tmp;
+            //int tmp = a;
+            //a = b;
+            //b = tmp;
+            a = 10;
+            b = 20;
+
         }
 
         static void Main(string[] args)
         {
-            int a = 10;
-            int b = 20;
+            int a;
+            int b;
 
-            Console.WriteLine("a={0}, b={1}", a, b);
-            Swap(ref a, ref b);
+            //Console.WriteLine("a={0}, b={1}", a, b);
+            Swap(out a, out b);
             //Swap( a, b);
             Console.WriteLine("a={0}, b={1}", a, b);
         }
