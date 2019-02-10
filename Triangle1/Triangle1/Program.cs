@@ -7,7 +7,7 @@ namespace Triangle1
         //멤버변수 선언
         private int width;
         private int height;
-        private int area;
+        //private int area;
 
         //멤버면수를 다룰 속성을 선언
         public int Width
@@ -49,7 +49,7 @@ namespace Triangle1
     }
     public class Test
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Triangle1 t1 = new Triangle1();
             t1.Width = 6;
