@@ -4,11 +4,11 @@ namespace ConsoleApp27
 {
     class EventPublisher
     {
-        public delegate void MyEventHandler();
-        public event MyEventHandler MyEvent;
+        //public delegate void MyEventHandler();
+        public event EventHandler MyEvent;
         public void Do()
         {
-            MyEvent?.Invoke();
+            MyEvent(null, null);
         }
     }
 
@@ -18,12 +18,22 @@ namespace ConsoleApp27
         {
             EventPublisher p = new EventPublisher();
 
-            p.MyEvent += new EventPublisher.MyEventHandler(doAction);
+            //p.MyEvent += new EventHandler(doAction);
 
-            p.Do();
+            p.MyEvent += doAction;
+
+            p.MyEvent += delegate (object sender, EventArgs e)
+            {
+                Console.WriteLine("");
+            };
+
+            p.MyEvent += (sender, e) =>
+            {
+                Console.WriteLine("myEnvent라는 이벤트 발생");
+            };
         }
 
-        private static void doAction()
+        private static void doAction(object sender, EventArgs e)
         {
             Console.WriteLine("MyEvent라는 이벤트 발생...");
         }
