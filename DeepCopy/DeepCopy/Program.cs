@@ -5,13 +5,17 @@ class CreaditCard
     public string name;
 }
 
-class Customer
+class Customer : ICloneable
 {
     public int age;
     public CreaditCard card;
-    public object ShallowCopy()
+    public object Clone()
     {
-        return this.MemberwiseClone();
+        Customer c = new Customer();
+        c.age = this.age;
+        c.card = new CreaditCard();
+        c.card.name = this.card.name;
+        return c;
     }
 }
 
@@ -23,7 +27,7 @@ class ArrayTest
         c1.age = 20;
         c1.card = new CreaditCard();
         c1.card.name = "비씨카드";
-        Customer c2 = (Customer)c1.ShallowCopy();
+        Customer c2 = (Customer)c1.Clone();
         c2.card.name = "BC카드";
 
         Console.WriteLine("c1.card.name = " + c1.card.name);
