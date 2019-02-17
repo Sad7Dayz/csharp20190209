@@ -13,7 +13,7 @@ class TcpClientTest
         try
         {
             client = new TcpClient();
-            client.Connect("127.0.0.1", 5001);
+            client.Connect("192.168.0.18", 5001);
             NetworkStream stream = client.GetStream();
 
             Encoding encode = Encoding.GetEncoding("utf-8");
