@@ -13,7 +13,7 @@ namespace OracleTest
 {
     public partial class Form1 : Form
     {
-        OleDbConnection conn = null;
+        //OleDbConnection conn = null;
         OleDbDataAdapter adapter = null;
         DataSet ds = null;
 
@@ -29,9 +29,11 @@ namespace OracleTest
                 ds = new DataSet("emp");
 
                 string conStr = "Provider=OraOLEDB.Oracle;data source=topcredu;User ID=scott;Password=tiger";
-                conn = new OleDbConnection(conStr);
-                conn.Open();
-                adapter = new OleDbDataAdapter("select * from emp", conn);
+                //conn = new OleDbConnection(conStr);
+                //conn.Open();
+                OleDbCommand command = new OleDbCommand("insert into emp(empno, ename) values(7500, 'OJC')", conn);
+                command.ExecuteNonQuery();
+                adapter = new OleDbDataAdapter("select * from emp where ename ='OJC'", conn);
                 adapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
             }
