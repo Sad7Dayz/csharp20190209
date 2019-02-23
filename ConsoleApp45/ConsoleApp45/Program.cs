@@ -41,7 +41,7 @@ class TcpClientTest
         try
         {
             client = new TcpClient();
-            client.Connect("localhost", 5001);
+            client.Connect("192.168.0.18", 5001);
 
             NetworkStream stream = client.GetStream();
             Encoding encode = System.Text.Encoding.GetEncoding("euc-kr");
